@@ -2,7 +2,7 @@
  * @Author: Radon
  * @Date: 2021-10-24 10:37:03
  * @LastEditors: Radon
- * @LastEditTime: 2021-10-27 16:44:35
+ * @LastEditTime: 2021-10-29 11:21:44
  * @Description: Hi, say something
  */
 #include <algorithm>
@@ -112,46 +112,6 @@ public:
                 break;
         }
         return result;
-    }
-
-    /**
-     * @description: 2021年10月25日
-     * @param {int} target
-     * @return {*}
-     */
-    bool searchMatrix(vector<vector<int>> &matrix, int target) {
-        int m = matrix.size(), n = matrix[0].size(); // m行, n列
-        int i = 0, j = n - 1;
-        while (i < m && j >= 0) {
-            if (matrix[i][j] > target) {
-                j--;
-            } else if (matrix[i][j] < target) {
-                i++;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2) {
-        stack<int> stk;
-        unordered_map<int, int> umap;
-        for (int i = nums2.size() - 1; i >= 0; i--) {
-            while (!stk.empty() && nums2[i] > stk.top()) {
-                stk.pop();
-            }
-            if (stk.empty()) {
-                umap[nums2[i]] = -1;
-            } else {
-                umap[nums2[i]] = stk.top();
-            }
-            stk.push(nums2[i]);
-        }
-        for (int &data : nums1) {
-            data = umap[data];
-        }
-        return nums1;
     }
 };
 
