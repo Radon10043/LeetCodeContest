@@ -2,12 +2,13 @@
  * @Author: Radon
  * @Date: 2021-10-31 10:38:25
  * @LastEditors: Radon
- * @LastEditTime: 2021-10-31 12:30:54
+ * @LastEditTime: 2021-10-31 14:59:26
  * @Description: Hi, say something
  */
 #include "headers/List.h"
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <set>
 #include <sstream>
 #include <stack>
@@ -69,37 +70,31 @@ public:
     }
 
     /**
-     * @description: BFS+HashSet, 思路正确但Timeout
+     * @description: BFS+HashSet, 比赛结束后Accept
      * @param {vector<int>} &nums
      * @param {int} start
      * @param {int} goal
      * @return {*}
      */
     int minimumOperations(vector<int> &nums, int start, int goal) {
-        unordered_set<int> checked, prev, cur;
-        int cnt = 0;
-        cur.insert(start);
-        prev = cur;
-        while (!prev.empty()) {
-            cur.clear();
-            for (int data : prev) {
-                if (!(checked.insert(data).second))
-                    continue;
-                if (data < 0 || data > 1000)
-                    continue;
-                for (int num : nums) {
-                    if ((data + num == goal) || (data - num == goal) || ((data ^ num) == goal))
-                        return cnt + 1;
-                    if (data + num >= 0 && data + num <= 1000)
-                        cur.insert(data + num);
-                    if (data - num >= 0 && data - num <= 1000)
-                        cur.insert(data - num);
-                    if (data ^ num >= 0 && data ^ num <= 1000)
-                        cur.insert(data ^ num);
-                }
+        typedef pair<int, int> pii;
+        queue<pii> q;
+        unordered_set<int> checked;
+        q.push(pii(start, 0));
+
+        while (!q.empty()) {
+            pii temp = q.front();
+            q.pop();
+            for (int num : nums) {
+                if ((temp.first + num == goal) || (temp.first - num == goal) || ((temp.first ^ num) == goal))
+                    return temp.second + 1;
+                if (temp.first + num >= 0 && temp.first + num <= 1000 && checked.insert(temp.first + num).second)
+                    q.push(pii(temp.first + num, temp.second + 1));
+                if (temp.first - num >= 0 && temp.first - num <= 1000 && checked.insert(temp.first - num).second)
+                    q.push(pii(temp.first - num, temp.second + 1));
+                if ((temp.first ^ num) >= 0 && (temp.first ^ num) <= 1000 && checked.insert(temp.first ^ num).second)
+                    q.push(pii(temp.first ^ num, temp.second + 1));
             }
-            cnt++;
-            prev = cur;
         }
         return -1;
     }
