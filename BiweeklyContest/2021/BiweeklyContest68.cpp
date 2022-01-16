@@ -5,8 +5,8 @@
  * @LastEditTime: 2021-12-25 22:48:56
  * @Description: Hi, say something
  */
-#include "headers/BinaryTree.h"
-#include "headers/List.h"
+#include "..\..\headers\BinaryTree.h"
+#include "..\..\headers\List.h"
 #include <algorithm>
 #include <iostream>
 #include <set>
