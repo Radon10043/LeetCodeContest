@@ -2,7 +2,7 @@
  * @Author: Radon
  * @Date: 2021-12-30 16:27:42
  * @LastEditors: Radon
- * @LastEditTime: 2022-01-05 13:07:10
+ * @LastEditTime: 2022-01-17 10:37:50
  * @Description: Hi, say something
  */
 #include "headers\BinaryTree.h"
@@ -17,7 +17,6 @@
 #include <vector>
 using namespace std;
 
-// TODO: 格式化代码
 class Solution {
 public:
     double getAdmissionLine(int k, vector<double> &scores) {
