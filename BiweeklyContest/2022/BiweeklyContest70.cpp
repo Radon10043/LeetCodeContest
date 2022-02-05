@@ -2,7 +2,7 @@
  * @Author: Radon
  * @Date: 2022-01-22 22:33:38
  * @LastEditors: Radon
- * @LastEditTime: 2022-01-23 00:01:17
+ * @LastEditTime: 2022-01-23 11:39:33
  * @Description: Hi, say something
  */
 #include <algorithm>
@@ -88,12 +88,12 @@ public:
 
     /**
      * @brief WA :(
-     * 
-     * @param grid 
-     * @param pricing 
-     * @param start 
-     * @param k 
-     * @return vector<vector<int>> 
+     *
+     * @param grid
+     * @param pricing
+     * @param start
+     * @param k
+     * @return vector<vector<int>>
      */
     vector<vector<int>> highestRankedKItems(vector<vector<int>> &grid, vector<int> &pricing, vector<int> &start, int k) {
         int m = grid.size(), n = grid[0].size();
