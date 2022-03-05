@@ -2,7 +2,7 @@
  * @Author: Radon
  * @Date: 2022-02-13 10:32:21
  * @LastEditors: Radon
- * @LastEditTime: 2022-02-13 12:19:25
+ * @LastEditTime: 2022-02-20 12:21:52
  * @Description: Hi, say something
  */
 #include <algorithm>
@@ -45,7 +45,7 @@ public:
     }
 
     /**
-     * @brief Ac
+     * @brief TODO: WA
      *
      * @param nums
      * @return int
@@ -127,7 +127,7 @@ public:
 
 int main(int argc, char **argv) {
     Solution sol;
-    vector<int> beans = {4, 1, 6, 5};
-    sol.minimumRemoval(beans);
+    vector<int> nums = {2, 3, 4, 1, 4, 2, 2, 2};
+    sol.minimumOperations(nums);
     return 0;
 }
