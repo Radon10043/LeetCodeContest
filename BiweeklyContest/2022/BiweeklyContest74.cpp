@@ -2,14 +2,7 @@
  * @Author: Radon
  * @Date: 2022-03-19 22:26:57
  * @LastEditors: Radon
- * @LastEditTime: 2022-03-20 00:07:13
- * @Description: Hi, say something
- */
-/*
- * @Author: Radon
- * @Date: 2022-03-05 22:34:47
- * @LastEditors: Radon
- * @LastEditTime: 2022-03-06 00:04:58
+ * @LastEditTime: 2022-03-20 11:50:10
  * @Description: Hi, say something
  */
 #include <algorithm>
@@ -96,7 +89,7 @@ public:
     }
 
     /**
-     * @brief 2697 / 2698
+     * @brief
      *
      * @param floor
      * @param numCarpets
@@ -107,6 +100,9 @@ public:
         int n = floor.length();
         int black = count(floor.begin(), floor.end(), '0'), white = n - black;
         int len = carpetLen;
+
+        if (numCarpets * carpetLen >= n)
+            return 0;
 
         string instead(carpetLen, '0');
 
